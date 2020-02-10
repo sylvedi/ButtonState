@@ -1,0 +1,52 @@
+﻿@model List<ButtonState.Models.ButtonModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @Html.Label("Playing with balls")
+        @using (Html.BeginForm("HandleButtonClick", "Button"))
+        {
+            for (int i = 0; i < Model.Count; i++)
+            {
+                if (i % 5 == 0)
+                {
+                    <br />
+                }
+    <button type="submit" name="mine" value="@i">
+        @if (Model[i].State == 1)
+        {
+            <img src="~/Images/gold.jpg" />
+
+        }
+
+        else if (Model[i].State == 2)
+        {
+            <img src="~/Images/on.png" />
+        }
+        
+        else
+        {
+            <img src="~/Images/tennis.png" />
+        }
+
+
+    </button>
+
+            }
+        }
+
+
+
+    </div>
+</body>
+</html>
